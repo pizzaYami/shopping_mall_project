@@ -6,31 +6,38 @@ function App() {
     "강남 우동맛집",
     "파이썬 독학",
   ]);
-  let [like, setLike] = useState(0);
+  let [like, setLike] = useState([0, 1, 2]);
   let [modal, setModal] = useState(false);
   return (
     <div className="App">
       <div className="black-nav">
         <h4>블로그임</h4>
       </div>
-      <div className="list">
-        <h4
-          onClick={() => {
-            setModal(!modal);
-          }}
-        >
-          {글제목[0]} <span onClick={() => setLike(like + 1)}>👍</span>
-          {like}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{글제목[1]} </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{글제목[2]}</h4>
-        <p>2월 17일 발행</p>
+      {글제목.map(function (item, i) {
+        return (
+          <div className="list" key={i}>
+            <h4>
+              {item}
+              <span
+                onClick={() => {
+                  let copy = [...like];
+                  copy[i] += 1;
+                  setLike(copy);
+                }}
+              >
+                👍🏻{like[i]}
+              </span>
+            </h4>
+            <p>2월 18일 발행</p>
+          </div>
+        );
+      })}
+
+      {modal == true ? <Modal></Modal> : null}
+      <div>
+        {[1, 2, 3].map(function () {
+          return <div>안녕</div>;
+        })}
       </div>
     </div>
   );
