@@ -6,6 +6,7 @@ function App() {
     "강남 우동맛집",
     "파이썬 독학",
   ]);
+  let [글제목Item, set글제목Item] = useState(0);
   let [like, setLike] = useState([0, 1, 2]);
   let [modal, setModal] = useState(false);
   return (
@@ -19,6 +20,7 @@ function App() {
             <h4
               onClick={() => {
                 setModal(!modal);
+                set글제목Item(i);
               }}
             >
               {item}
@@ -37,7 +39,13 @@ function App() {
         );
       })}
 
-      {modal == true ? <Modal 글제목={글제목} color={"skyblue"}></Modal> : null}
+      {modal == true ? (
+        <Modal
+          글제목={글제목}
+          글제목Item={글제목Item}
+          color={"skyblue"}
+        ></Modal>
+      ) : null}
     </div>
   );
 }
@@ -45,7 +53,7 @@ function App() {
 function Modal(props) {
   return (
     <div className="modal" style={{ background: props.color }}>
-      <h4>{props.글제목[0]}</h4>
+      <h4>{props.글제목[props.글제목Item]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
