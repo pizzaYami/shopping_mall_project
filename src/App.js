@@ -7,8 +7,9 @@ function App() {
     "파이썬 독학",
   ]);
   let [글제목Item, set글제목Item] = useState(0);
-  let [like, setLike] = useState([0, 1, 2]);
+  let [like, setLike] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
+  let [입력값, set입력값] = useState("");
   return (
     <div className="App">
       <div className="black-nav">
@@ -35,9 +36,39 @@ function App() {
               </span>
             </h4>
             <p>2월 18일 발행</p>
+            <button
+              onClick={(e) => {
+                let copy = [...글제목];
+                copy.splice(i, 1);
+                set글제목(copy);
+                let copy2 = [...like];
+                copy2.splice(i, 1);
+                setLike(copy2);
+              }}
+            >
+              삭제
+            </button>
           </div>
         );
       })}
+      <input
+        onChange={(e) => {
+          set입력값(e.target.value);
+        }}
+      ></input>
+      <button
+        onClick={() => {
+          let copy = [...글제목];
+          copy.push(입력값);
+          set입력값("");
+          set글제목(copy);
+          let copy2 = [...like];
+          copy2.push(0);
+          setLike(copy2);
+        }}
+      >
+        글발행
+      </button>
 
       {modal == true ? (
         <Modal
@@ -50,10 +81,10 @@ function App() {
   );
 }
 
-function Modal(props) {
+function Modal({ 글제목, 글제목Item, color }) {
   return (
-    <div className="modal" style={{ background: props.color }}>
-      <h4>{props.글제목[props.글제목Item]}</h4>
+    <div className="modal" style={{ background: color }}>
+      <h4>{글제목[글제목Item]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
