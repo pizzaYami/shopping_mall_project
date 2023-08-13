@@ -16,7 +16,11 @@ function App() {
       {글제목.map(function (item, i) {
         return (
           <div className="list" key={i}>
-            <h4>
+            <h4
+              onClick={() => {
+                setModal(!modal);
+              }}
+            >
               {item}
               <span
                 onClick={() => {
@@ -33,20 +37,15 @@ function App() {
         );
       })}
 
-      {modal == true ? <Modal></Modal> : null}
-      <div>
-        {[1, 2, 3].map(function () {
-          return <div>안녕</div>;
-        })}
-      </div>
+      {modal == true ? <Modal 글제목={글제목} color={"skyblue"}></Modal> : null}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
-    <div className="modal">
-      <h4>제목</h4>
+    <div className="modal" style={{ background: props.color }}>
+      <h4>{props.글제목[0]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
