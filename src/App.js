@@ -26,16 +26,18 @@ function App() {
             >
               {item}
               <span
-                onClick={() => {
+                onClick={(e) => {
                   let copy = [...like];
                   copy[i] += 1;
                   setLike(copy);
+                  e.stopPropagation();
                 }}
               >
                 👍🏻{like[i]}
               </span>
             </h4>
             <p>2월 18일 발행</p>
+            {/* 삭제버튼 */}
             <button
               onClick={(e) => {
                 let copy = [...글제목];
