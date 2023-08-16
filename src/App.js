@@ -12,9 +12,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Card />} />
         <Route path="/detail" element={<Detail />} />
-        <Route path="/about" element={<About />}>
-          <Route path="member" element={<div>멤버들</div>} />
-          <Route path="location" element={<div>회사위치</div>} />
+        <Route
+          path="/event"
+          element={
+            <div>
+              <h2>오늘의 이벤트</h2>
+              <Outlet></Outlet>
+            </div>
+          }
+        >
+          <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
+          <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
         </Route>
         <Route path="*" element={<div>없는페이지임</div>} />
       </Routes>
