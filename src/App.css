@@ -1,24 +1,16 @@
-.black-nav {
-  background: black;
-  width: 100%;
-  display: flex;
-  color: white;
-  padding: 20px;
-}
-
-div {
+* {
   box-sizing: border-box;
+  margin: 0;
+  border: 0;
 }
 
-.list {
-  text-align: left;
-  padding-left: 20px;
-  border-bottom: 1px solid grey;
+.main-bg {
+  height: 300px;
+  background-image: url("./bg.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.modal {
-  margin-top: 20px;
-  padding: 20px;
-  background: #eee;
-  text-align: left;
+.shoes_container {
+  display: flex;
 }
