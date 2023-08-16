@@ -1,30 +1,18 @@
 import "./App.css";
+import Card from "./Card.js";
+import Detail from "./Detail.js";
 import data from "./data.js";
+import { Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <div>
       <div className="main-bg"></div>
-      <Card />
-    </div>
-  );
-}
 
-function Card() {
-  return (
-    <div className="shoes_container">
-      {data.map((shoes, i) => {
-        return (
-          <div className="shoes_item">
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <img
-              src={`https://codingapple1.github.io/shop/shoes${i + 1}.jpg`}
-              width="50%"
-            />
-            <h4>{shoes.title}</h4>
-            <p>{shoes.price}</p>
-          </div>
-        );
-      })}
+      <Routes>
+        <Route path="/" element={<Card />} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/about" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
