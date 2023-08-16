@@ -1,5 +1,5 @@
-import data from "./data.js";
-import { Link } from "react-router-dom";
+import data from "../data.js";
+import { Link, Navigate } from "react-router-dom";
 
 function Card() {
   return (

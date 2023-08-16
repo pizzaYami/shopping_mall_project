@@ -1,4 +1,4 @@
-import data from "./data.js";
+import data from "../data.js";
 
 function Detail() {
   let shoes = data[0];
