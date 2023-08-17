@@ -2,16 +2,16 @@ import "./App.css";
 import Card from "./components/Card.js";
 import Detail from "./components/Detail.js";
 import data from "./data.js";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 function App() {
-  let navigate = useNavigate();
+  let shoes = data;
   return (
     <div>
       <div className="main-bg"></div>
 
       <Routes>
         <Route path="/" element={<Card />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route
           path="/event"
           element={
