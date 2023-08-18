@@ -8,7 +8,6 @@ function App() {
   return (
     <div>
       <div className="main-bg"></div>
-
       <Routes>
         <Route path="/" element={<Card />} />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />

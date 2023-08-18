@@ -22,3 +22,8 @@
   flex-direction: column;
   align-items: center;
 }
+.yellowBox {
+  width: 100%;
+  height: 100px;
+  background-color: yellow;
+}
