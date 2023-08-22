@@ -6,9 +6,6 @@ import axios from "axios";
 function Card() {
   let [shoes, setShoes] = useState([...data]);
   let [getCounter, setGetCounter] = useState(2);
-  useEffect(() => {
-    alert("로딩중입니다.");
-  }, [shoes]);
   return (
     <>
       {getCounter < 4 ? (
