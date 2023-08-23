@@ -1,20 +1,20 @@
 import "./App.css";
 import Card from "./components/Card.js";
 import Detail from "./components/Detail.js";
+import Cart from "./components/Cart.js";
+
 import data from "./data.js";
 import { useState } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 function App() {
-  let [재고, 재고변경] = useState([10, 11, 12]);
   let shoes = data;
   return (
     <div>
       <div className="main-bg"></div>
       <Routes>
         <Route path="/" element={<Card />} />
-
+        <Route path="/cart" element={<Cart />} />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
-
         <Route
           path="/event"
           element={
