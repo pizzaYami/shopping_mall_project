@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
+import { Context1 } from "./../App";
 
-function Detail({ shoes }) {
+function Detail() {
   let { id } = useParams();
+  let { shoes, 재고 } = useContext(Context1);
+  console.log(재고);
+
   return (
     <div className="shoes_item">
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
@@ -26,8 +30,17 @@ function TabContent() {
     <div>CSS content</div>,
     <div>JS content</div>,
   ]);
+  let [fade, setFade] = useState("");
+  useEffect(() => {
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
+    return () => {
+      setFade("");
+    };
+  }, [tapButton]);
   return (
-    <Container>
+    <Container className={"start " + fade}>
       <TapContainer tapButton={tapButton}>
         <button
           onClick={() => {

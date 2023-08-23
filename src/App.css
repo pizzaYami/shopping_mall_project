@@ -27,3 +27,11 @@
   height: 100px;
   background-color: yellow;
 }
+
+.start {
+  opacity: 0;
+}
+.end {
+  opacity: 1;
+  transition: opacity 1.5s;
+}

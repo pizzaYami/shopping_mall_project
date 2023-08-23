@@ -2,15 +2,27 @@ import "./App.css";
 import Card from "./components/Card.js";
 import Detail from "./components/Detail.js";
 import data from "./data.js";
-import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
+import { useState, createContext } from "react";
+import { Routes, Route, Outlet } from "react-router-dom";
+export let Context1 = createContext();
 function App() {
+  let [재고, 재고변경] = useState([10, 11, 12]);
   let shoes = data;
   return (
     <div>
       <div className="main-bg"></div>
       <Routes>
         <Route path="/" element={<Card />} />
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+
+        <Route
+          path="/detail/:id"
+          element={
+            <Context1.Provider value={{ 재고, shoes }}>
+              <Detail />
+            </Context1.Provider>
+          }
+        />
+
         <Route
           path="/event"
           element={
