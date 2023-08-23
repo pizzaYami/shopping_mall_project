@@ -1,12 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Context1 } from "./../App";
 
-function Detail() {
+function Detail({ shoes }) {
   let { id } = useParams();
-  let { shoes, 재고 } = useContext(Context1);
-  console.log(재고);
 
   return (
     <div className="shoes_item">
