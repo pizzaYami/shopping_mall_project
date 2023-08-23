@@ -2,7 +2,20 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 let user = createSlice({
   name: "user",
+  initialState: "kim",
+  reducers: {
+    changeName(state) {
+      return "john " + state;
+    },
+  },
+});
+
+export let { changeName } = user.actions;
+
+let cart = createSlice({
+  name: "cart", // 변수명과 동일하게 ?
   initialState: [
+    // 내용이 들어감
     { id: 0, name: "White and Black", count: 2 },
     { id: 2, name: "Grey Yordan", count: 1 },
   ],
@@ -11,5 +24,6 @@ let user = createSlice({
 export default configureStore({
   reducer: {
     user: user.reducer,
+    cart: cart.reducer,
   },
 });

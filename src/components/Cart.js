@@ -1,21 +1,33 @@
 import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeName } from "./../store.js";
 function Cart() {
-  let shoes = useSelector((state) => {
+  let dispatch = useDispatch();
+  let cart = useSelector((state) => {
+    return state.cart;
+  });
+  let user = useSelector((state) => {
     return state.user;
   });
   return (
     <>
-      {shoes.map((shoe) => {
+      {cart.map((cart) => {
         return (
           <Table>
             <thead>
               <tr>
-                <th>#</th>
-                <th>{shoe.name}</th>
-                <th>{shoe.count}</th>
+                <th>{user}</th>
+                <th>{cart.name}</th>
+                <th>{cart.count}</th>
                 <th>변경하기</th>
+                <button
+                  onClick={() => {
+                    dispatch(changeName());
+                  }}
+                >
+                  버튼임
+                </button>
               </tr>
             </thead>
             <tbody>
