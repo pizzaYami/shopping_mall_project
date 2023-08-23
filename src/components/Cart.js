@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { changeName } from "./../store.js";
+import { increace } from "./../store.js";
 function Cart() {
   let dispatch = useDispatch();
   let cart = useSelector((state) => {
@@ -17,13 +17,13 @@ function Cart() {
           <Table>
             <thead>
               <tr>
-                <th>{user}</th>
+                <th>{user.age}</th>
                 <th>{cart.name}</th>
                 <th>{cart.count}</th>
                 <th>변경하기</th>
                 <button
                   onClick={() => {
-                    dispatch(changeName());
+                    dispatch(increace(10));
                   }}
                 >
                   버튼임
